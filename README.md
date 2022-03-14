@@ -7,9 +7,10 @@
 * Pyritään tekemään ensimmäiset viikot/sprintit kampuksella yhdessä myös torstaisin ja perjantaisin n. 2-3h sessioita.
   - Projektin edetessä voidaan muutttaa toimintatapoja, aikatauluja yms.
 * **Retrospektiivi:** Kerran viikossa sunnuntaisin tai maanantaisin (tunnilla) -> tiedetään tarkemmin mikä toimiin ensimmäisten sprittien jälkeen.
+* Alla olevat roolit ovat alustavia (14.3) ja ne elävät projektin edetessä.
 
 ----
-### Jäsenet + Roolit (alustavasti):
+### Roolit + Jäsenet (alustavasti):
 * Tuotteen omistaja: Hilla Huhtala
 * Grafiikka: Roni Kauppinen
 * Frontend + Backend: Veeti Oivo, Saku Penttilä, Jussi Wedman
