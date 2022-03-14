@@ -1,11 +1,12 @@
 ### Ryhmän 2. Verkkopalveluprojekti kurssin projekti
+#### [HacknPlan](https://app.hacknplan.com/p/164255/)
+
 
 ### Sovittuja asioita:  
 * **Aihe:** Elektroniikka verkkokauppa
-* Sprintin kesto: 1 viikko
 * Keskitytään aluksi tehtävänannon pakollisiin osiin, jos ehditään tehdään lisää.
 * Pyritään tekemään ensimmäiset viikot/sprintit kampuksella yhdessä myös torstaisin ja perjantaisin n. 2-3h sessioita.
-  - Projektin edetessä voidaan muutttaa toimintatapoja, aikatauluja yms.
+  - Projektin edetessä voidaan muuttaa toimintatapoja, aikatauluja yms.
 * **Retrospektiivi:** Kerran viikossa sunnuntaisin tai maanantaisin (tunnilla) -> tiedetään tarkemmin mikä toimiin ensimmäisten sprittien jälkeen.
 * Alla olevat roolit ovat alustavia (14.3) ja ne elävät projektin edetessä.
 
@@ -36,4 +37,5 @@
 - [ ] Anna kaikille oikeudet repoon 
 - [ ] Lisää kaikki HacknPlan projektiin + myös opettajat
 - [ ] Lisää linkki hacknplaniin
-- [ ] Tee reposta julkinen kun kaikki valmista tai anna opettajille oikeudet (tarkista tehtävänanto)
+- [ ] Tee reposta julkinen kun kaikki valmista + anna opettajille admin oikeudet (tarkista tehtävänanto)
+- [ ] Sopikaa tehdäänkö yhteen repoon front- ja backend
