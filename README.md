@@ -2,6 +2,12 @@
 #### [HacknPlan](https://app.hacknplan.com/p/164255/)
 #### [Figma](https://www.figma.com/file/XyZyYszfC1mNYNnAYLGXl5/nettisivuproto)
 
+#### Käyttöönotto:
+1. Kopioi repo XAMPPin `htdocs` kansioon `C:\Users\XXX\xampp\htdocs`
+   1. `git clone https://github.com/devjume/verkkopalvelu-ryhma-2.git`
+2. Käynnistä XAMPP, jolloin backend on käytössä osoittessa: `http://localhost/verkkopalvelu_ryhma_2/backend/index.php`
+3. React Boilerplate vielä kesken
+
 
 ### Sovittuja asioita:  
 * **Aihe:** Elektroniikka verkkokauppa
