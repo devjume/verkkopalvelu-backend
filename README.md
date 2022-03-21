@@ -1,5 +1,6 @@
 ### Ryhmän 2. Verkkopalveluprojekti kurssin projekti
 #### [HacknPlan](https://app.hacknplan.com/p/164255/)
+#### [Figma](https://www.figma.com/file/XyZyYszfC1mNYNnAYLGXl5/nettisivuproto)
 
 
 ### Sovittuja asioita:  
@@ -34,8 +35,8 @@
 ----
 ### TODO:
 - [ ] Sovitaan miten daily standup toteutetaan -> kampuksella jos tavataan niin siinä ohessa??
-- [ ] Anna kaikille oikeudet repoon 
-- [ ] Lisää kaikki HacknPlan projektiin + myös opettajat
-- [ ] Lisää linkki hacknplaniin
-- [ ] Tee reposta julkinen kun kaikki valmista + anna opettajille admin oikeudet (tarkista tehtävänanto)
+- [x] Anna kaikille oikeudet repoon 
+- [x] Lisää kaikki HacknPlan projektiin + myös opettajat
+- [x] Lisää linkki hacknplaniin
+- [x] Tee reposta julkinen kun kaikki valmista + anna opettajille admin oikeudet (tarkista tehtävänanto)
 - [ ] Sopikaa tehdäänkö yhteen repoon front- ja backend
