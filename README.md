@@ -1,7 +1,5 @@
-### Ryhmän 2. Verkkopalveluprojekti kurssin projekti
-#### [Frontend Repo](https://github.com/devjume/verkkopalvelu-frontend)
-#### [HacknPlan](https://app.hacknplan.com/p/164255/)
-#### [Figma](https://www.figma.com/file/XyZyYszfC1mNYNnAYLGXl5/nettisivuproto)
+### Ryhmän 2. Verkkopalveluprojekti kurssin työ
+#### [Frontend Repo](https://github.com/devjume/verkkopalvelu-frontend) | [HacknPlan](https://app.hacknplan.com/p/164255/) | [Figma](https://www.figma.com/file/XyZyYszfC1mNYNnAYLGXl5/nettisivuproto)
 
 #### Käyttöönotto:
 1. Kopioi repo XAMPPin `htdocs` kansioon `C:\Users\XXX\xampp\htdocs`
@@ -56,4 +54,4 @@ Tähän voisi listata backendin endpointteja, kun niitä luodaan. Auttaa kaikkia
 - [x] Lisää kaikki HacknPlan projektiin + myös opettajat
 - [x] Lisää linkki hacknplaniin
 - [x] Tee reposta julkinen kun kaikki valmista + anna opettajille admin oikeudet (tarkista tehtävänanto)
-- [ ] Sopikaa tehdäänkö yhteen repoon front- ja backend
+- [x] Sopikaa tehdäänkö yhteen repoon front- ja backend
