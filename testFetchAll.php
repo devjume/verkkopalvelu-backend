@@ -5,7 +5,7 @@
   try {
     $db = openDB();
 
-    $sql = "select * from item";
+    $sql = "select * from tuote";
     $query = $db->query($sql);
     $result = $query->fetchAll();
 

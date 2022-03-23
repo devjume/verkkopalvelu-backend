@@ -9,6 +9,16 @@
 2. Käynnistä XAMPP, jolloin backend on käytössä osoittessa: `http://localhost/verkkopalvelu-backend/index.php`
 3. React Boilerplate vielä kesken
 
+## Huomioita:
+* Backendin URL: `http://localhost/verkkopalvelu-backend/`
+* Kaikken palautettavan datan tulee olla JSON muodossa
+
+## Endpoints:
+Tähän voisi listata backendin endpointteja, kun niitä luodaan. Auttaa kaikkia pysymään kärryillä siitä mikä, jonkin endpointin tarkoitus on.
+| Method |URL  |  Kuvaus | 
+|---|---|---|
+| GET | /index.php |  Testi endpoint, joka palauttaa {Hello: World} |
+| GET | /testFetchAll.php | Esimerkki, josta näkyy tietokanta yhteyden luonti |
 
 ### Sovittuja asioita:  
 * **Aihe:** Elektroniikka verkkokauppa

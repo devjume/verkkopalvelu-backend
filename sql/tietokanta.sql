@@ -1,16 +1,22 @@
 /* LUONTILAUSEET */
 
+DROP DATABASE IF EXISTS verkkopalvelu;
+
+CREATE DATABASE verkkopalvelu;
+
+USE verkkopalvelu;
+
 CREATE TABLE tuoteryhma (
     id int NOT NULL AUTO_INCREMENT,
-    nimi NOT NULL varchar(40),
+    nimi varchar(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE tuote (
     tuote_id int NOT NULL AUTO_INCREMENT,
-    tuotenimi varchar(40) NOT NULL,
+    tuotenimi varchar(255) NOT NULL,
     hinta DECIMAL(10,2) NOT NULL,
-    kuvaus varchar(250) NOT NULL,
+    kuvaus varchar(255) NOT NULL,
     valmistaja varchar(40),
     PRIMARY KEY (tuote_id)
 );
@@ -22,7 +28,7 @@ CREATE TABLE asiakas (
     sahkoposti varchar(50),
     puhnro varchar(20),
     osoite varchar(50) NOT NULL,
-    postinro int(5) NOT NULL,
+    postinro varchar(5) NOT NULL,
     postitmp varchar(50) NOT NULL,
     rooli varchar(1),
     PRIMARY KEY (asiakas_id)
@@ -49,20 +55,15 @@ CREATE TABLE tilausrivi (
 /* INSERT LAUSEET */
 
 INSERT INTO asiakas (enimi, snimi, sahkoposti, puhnro, osoite, postinro, postitmp, rooli)
-VALUES ("Yee", "eeY", "YeeeeY@gmail.com", "733733733", "Saaristokatu 333 A3", "99999", "Kadotus", 1);
+VALUES  ("Yee", "eeY", "YeeeeY@gmail.com", "733733733", "Saaristokatu 333 A3", "99999", "Kadotus", 1),
+        ("Joku", "Testi", "jokutesti@gmail.com", "0506632420", "Kauppakatu 67A", "92100", "Raahe", 1);
 
-INSERT INTO asiakas (enimi, snimi, sahkoposti, puhnro, osoite, postinro, postitmp, rooli)
-VALUES ("Joku", "Testi", "jokutesti@gmail.com", "0506632420", "Kauppakatu 67A", "92100", "Raahe", 1);
-
-INSERT INTO tuoteryhma (nimi)
-VALUES ("Kannettavat");
 
 INSERT INTO tuoteryhma (nimi)
-VALUES ("Komponentit");
+VALUES ("Kannettavat"), ("Komponentit");
+
 
 INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja)
-VALUES ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin haluavalle, speksejä nyt ei jaksa ettiä", "Oisko acer???");
-
-INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja)
-VALUES ("ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 429, "ASUS TUF Gaming GeForce® GTX 1660 Ti EVO 6GB GDDR6 on kyllä ihan jees näyttis, suosittelen :D!.", "SUS");
+VALUES  ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin haluavalle, speksejä nyt ei jaksa ettiä", "Oisko acer???"),
+        ("ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 429, "ASUS TUF Gaming GeForce® GTX 1660 Ti EVO 6GB GDDR6 on kyllä ihan jees näyttis, suosittelen :D!.", "SUS");
 
