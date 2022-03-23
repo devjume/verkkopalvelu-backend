@@ -1,6 +1,5 @@
 <?php
   function openDB() {
-
     $ini = parse_ini_file("config.ini");
 
     $host = $ini["host"];
@@ -17,6 +16,9 @@
 
   function selectAsJson(object $db, string $sql) :void {
     $query = $db->query($sql);
+    $results = $query->fetchAll(PDO::FETCH_ASSOC);
+    http_response_code(200);
+    print json_encode($results);
 
   }
 
@@ -25,9 +27,11 @@
     return $db->lastInsertId();
   }
 
-
   function returnError(PDOException $pdoex) {
-    header('HTTP/1.1 500 Internal Server Error');
+    http_response_code(500);
     $error = ['error' => $pdoex->getMessage()];
     print json_encode($error);
+    exit();
   }
+
+?>

@@ -1,4 +1,4 @@
-### Ryhmän 2. Verkkopalveluprojekti kurssin työ
+### Ryhmän 2. Verkkopalveluprojekti kurssin backend
 #### [Frontend Repo](https://github.com/devjume/verkkopalvelu-frontend) | [HacknPlan](https://app.hacknplan.com/p/164255/) | [Figma](https://www.figma.com/file/XyZyYszfC1mNYNnAYLGXl5/nettisivuproto)
 
 #### Käyttöönotto:
@@ -17,6 +17,7 @@ Tähän voisi listata backendin endpointteja, kun niitä luodaan. Auttaa kaikkia
 |---|---|---|
 | GET | /index.php |  Testi endpoint, joka palauttaa {Hello: World} |
 | GET | /testFetchAll.php | Esimerkki, josta näkyy tietokanta yhteyden luonti |
+| GET | /products.php | Palauttaa kaikki tuotteet |
 
 ### Sovittuja asioita:  
 * **Aihe:** Elektroniikka verkkokauppa

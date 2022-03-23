@@ -3,9 +3,8 @@
   require_once 'inc/functions.php';
 
   try {
-    header('HTTP/1.1 200 OK');
-    $hello = array("Hello"=>"World");
-    print json_encode($hello);
+    http_response_code(200);
+    print json_encode(array("Hello" => "World"));
 
   } catch(PDOException $e) {
     returnError($e);
