@@ -18,13 +18,15 @@ CREATE TABLE tuote (
     hinta DECIMAL(10,2) NOT NULL,
     kuvaus varchar(255) NOT NULL,
     valmistaja varchar(40),
-    PRIMARY KEY (tuote_id)
+    tuoteryhma_id int NOT NULL,
+    PRIMARY KEY (tuote_id),
+    FOREIGN KEY (tuoteryhma_id) REFERENCES tuoteryhma(id)
 );
 
 CREATE TABLE asiakas (
     asiakas_id int NOT NULL AUTO_INCREMENT,
-    enimi varchar(40) NOT NULL,
-    snimi varchar(40) NOT NULL,
+    etunimi varchar(40) NOT NULL,
+    sukunimi varchar(40) NOT NULL,
     sahkoposti varchar(50),
     puhnro varchar(20),
     osoite varchar(50) NOT NULL,
@@ -35,35 +37,38 @@ CREATE TABLE asiakas (
 );
 
 CREATE TABLE tilaus (
-    tilausnro int(11) NOT NULL,
+    tilausnro int(11) NOT NULL AUTO_INCREMENT,
     asiakas_id int(11) NOT NULL,
-    tilauspvm date,
+    tilauspvm datetime,
     tila varchar(1),
     PRIMARY KEY(tilausnro),
     FOREIGN KEY (asiakas_id) REFERENCES asiakas(asiakas_id)
 );
 
 CREATE TABLE tilausrivi (
-    tilausnro int(11) NOT NULL,
-    rivinro int(11) NOT NULL,
-    tuote_id int(11),
-    kpl varchar(1),
-    CONSTRAINT PRIMARYKEY PRIMARY KEY (tilausnro,rivinro),
+    tilausnro int NOT NULL,
+    rivinro int NOT NULL,
+    tuote_id int NOT NULL,
+    kpl int NOT NULL,
+    CONSTRAINT PRIMARYKEY PRIMARY KEY (tilausnro, rivinro),
     FOREIGN KEY (tuote_id) REFERENCES tuote(tuote_id)
 );
 
 /* INSERT LAUSEET */
 
-INSERT INTO asiakas (enimi, snimi, sahkoposti, puhnro, osoite, postinro, postitmp, rooli)
-VALUES  ("Yee", "eeY", "YeeeeY@gmail.com", "733733733", "Saaristokatu 333 A3", "99999", "Kadotus", 1),
-        ("Joku", "Testi", "jokutesti@gmail.com", "0506632420", "Kauppakatu 67A", "92100", "Raahe", 1);
-
+INSERT INTO asiakas (etunimi, sukunimi, sahkoposti, puhnro, osoite, postinro, postitmp, rooli)
+VALUES  ("Samu", "Suomalainen", "ssuomalainen@gmail.com", "0404676431", "Saaristokatu 333 A3", "90500", "Tampere", 1),
+        ("Eino", "Kivelä", "kiveläeikka@gmail.com", "0506632420", "Kauppakatu 67A", "92100", "Raahe", 1);
 
 INSERT INTO tuoteryhma (nimi)
 VALUES ("Kannettavat"), ("Komponentit");
 
+INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja, tuoteryhma_id)
+VALUES  ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin haluavalle, speksejä nyt ei jaksa ettiä", "Acer", 1),
+        ("ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 429, "ASUS TUF Gaming GeForce® GTX 1660 Ti EVO 6GB GDDR6 on kyllä ihan jees näyttis, suosittelen :D!.", "Asus", 2);
 
-INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja)
-VALUES  ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin haluavalle, speksejä nyt ei jaksa ettiä", "Oisko acer???"),
-        ("ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 429, "ASUS TUF Gaming GeForce® GTX 1660 Ti EVO 6GB GDDR6 on kyllä ihan jees näyttis, suosittelen :D!.", "SUS");
+INSERT INTO tilaus (asiakas_id, tilauspvm, tila)
+    VALUES (1, "2022-03-24 11:40:10", "A"), (2, "2022-03-24 21:36:47", "A");
 
+INSERT INTO tilausrivi (tilausnro, rivinro, tuote_id, kpl)
+    VALUES (1, 1, 1, 2), (1, 2, 2, 4), (2, 1, 2, 45);
