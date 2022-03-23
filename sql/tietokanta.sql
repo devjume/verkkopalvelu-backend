@@ -19,6 +19,7 @@ CREATE TABLE tuote (
     kuvaus varchar(255) NOT NULL,
     valmistaja varchar(40),
     tuoteryhma_id int NOT NULL,
+    kuvatiedosto varchar(255),
     PRIMARY KEY (tuote_id),
     FOREIGN KEY (tuoteryhma_id) REFERENCES tuoteryhma(id)
 );
