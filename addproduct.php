@@ -1,5 +1,6 @@
 <?php
 require_once "./inc/functions.php";
+require_once "./inc/headers.php";
 
 $tuotenimi = filter_input(INPUT_POST, "tuotenimi");
 $hinta = filter_input(INPUT_POST, "hinta", FILTER_VALIDATE_INT);
