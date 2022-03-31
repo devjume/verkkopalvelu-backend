@@ -1,7 +1,7 @@
 <?php
   require_once 'inc/headers.php';
   require_once 'inc/functions.php';
-  $nimi = filter_input(INPUT_POST, "tuotenimi", FILTER_SANITIZE_NUMBER_INT);
+  $nimi = filter_input(INPUT_POST, "tuotenimi");
 
   try {
     $db = openDB();
