@@ -58,8 +58,9 @@ CREATE TABLE tilausrivi (
 CREATE TABLE yhteydenotto (
   id int NOT NULL AUTO_INCREMENT,
   nimi varchar(255) NOT NULL,
+  sposti varchar(255) NOT NULL,
   tilausnro int,
-  viesti text,
+  viesti text NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY (tilausnro) REFERENCES tilaus(tilausnro)
 );
@@ -83,6 +84,6 @@ INSERT INTO tilaus (asiakas_id, tilauspvm, tila)
 INSERT INTO tilausrivi (tilausnro, rivinro, tuote_id, kpl)
     VALUES (1, 1, 1, 2), (1, 2, 2, 4), (2, 1, 2, 45);
 
-INSERT INTO yhteydenotto (nimi, tilausnro, viesti) 
-    VALUES ("Eino Kivelä", 1, "Paketti saapui hieman vaurioituneena. Laitteeseen tullut pieni naarmu"),
-        ("Samu Suomalainen", 2, "Tuotetiedot ja saapunut tietä eivät täsmää")
+INSERT INTO yhteydenotto (nimi, tilausnro, sposti, viesti) 
+    VALUES ("Samu Suomalainen", 1, "ssuomalainen@gmail.com", "Paketti saapui hieman vaurioituneena. Laitteeseen tullut pieni naarmu"),
+        ("Eino Kivelä", 2, "kiveläeikka@gmail.com", "Tuotetiedot ja saapunut tietä eivät täsmää")
