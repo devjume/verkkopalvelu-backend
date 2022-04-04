@@ -55,6 +55,15 @@ CREATE TABLE tilausrivi (
     FOREIGN KEY (tuote_id) REFERENCES tuote(tuote_id)
 );
 
+CREATE TABLE yhteydenotto (
+  id int NOT NULL AUTO_INCREMENT,
+  nimi varchar(255) NOT NULL,
+  tilausnro int,
+  viesti text,
+  PRIMARY KEY(id),
+  FOREIGN KEY (tilausnro) REFERENCES tilaus(tilausnro)
+);
+
 /* INSERT LAUSEET */
 
 INSERT INTO asiakas (etunimi, sukunimi, sahkoposti, puhnro, osoite, postinro, postitmp, rooli)
@@ -73,3 +82,7 @@ INSERT INTO tilaus (asiakas_id, tilauspvm, tila)
 
 INSERT INTO tilausrivi (tilausnro, rivinro, tuote_id, kpl)
     VALUES (1, 1, 1, 2), (1, 2, 2, 4), (2, 1, 2, 45);
+
+INSERT INTO yhteydenotto (nimi, tilausnro, viesti) 
+    VALUES ("Eino Kivelä", 1, "Paketti saapui hieman vaurioituneena. Laitteeseen tullut pieni naarmu"),
+        ("Samu Suomalainen", 2, "Tuotetiedot ja saapunut tietä eivät täsmää")
