@@ -61,8 +61,8 @@ CREATE TABLE yhteydenotto (
   sposti varchar(255) NOT NULL,
   tilausnro int,
   viesti text NOT NULL,
-  PRIMARY KEY(id),
-  FOREIGN KEY (tilausnro) REFERENCES tilaus(tilausnro)
+  PRIMARY KEY(id)
+  #FOREIGN KEY (tilausnro) REFERENCES tilaus(tilausnro)
 );
 
 /* INSERT LAUSEET */
