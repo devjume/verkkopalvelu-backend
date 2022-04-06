@@ -7,6 +7,11 @@
 2. Käynnistä XAMPP, jolloin backend on käytössä osoittessa: `http://localhost/verkkopalvelu-backend/index.php`
 3. React Boilerplate vielä kesken
 
+#### Retrospektiivissä esille nousseet asiat (6.4)
+* Koodin kommenointi
+* Designit ja layout kaikille sivuille
+* Hacknplan tehtävien merkitseminen itselle ja niiden etenemisen merkkaaminen + tuntien kirjaus
+
 ## Huomioita:
 * Backendin URL: `http://localhost/verkkopalvelu-backend/`
 * Kaikken palautettavan datan tulee olla JSON muodossa
