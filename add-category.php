@@ -38,10 +38,10 @@ function checkCategory($db, $userInput) {
     $pdoCreate->bindParam(1, $userInput);
     $pdoCreate->execute();
     $categoryName = $pdoCreate-> fetchColumn();
-    return $userInput . " kategoria luotu";
+    return $userInput . " tuoteryhmä luotu";
   }
 
-  return $userInput . " kategoria on jo luotu";
+  return $userInput . " tuoteryhmä on jo luotu";
 }
 
 ?>
