@@ -4,6 +4,7 @@ require_once "./inc/headers.php";
 
 $tuotenimi = filter_input(INPUT_POST, "tuotenimi");
 $hinta = filter_input(INPUT_POST, "hinta", FILTER_VALIDATE_INT);
+$alehinta = filter_input(INPUT_POST, "alehinta");
 $kuvaus = filter_input(INPUT_POST, "kuvaus");
 $valmistaja = filter_input(INPUT_POST, "valmistaja");
 $kuvatiedosto = filter_input(INPUT_POST, "kuvatiedosto");
@@ -25,7 +26,7 @@ try {
   
   ## TEE TÄSSÄ ENSIN GENRE ID JA OHJAAJA ID TARKASTUS JA MAHDOLLINEN LUONTI
 
-  $sql = "INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja, kuvatiedosto, tuoteryhma_id) VALUES (?,?,?,?,?,?)";
+  $sql = "INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja, kuvatiedosto, tuoteryhma_id, alehinta) VALUES (?,?,?,?,?,?,?)";
 
   $pdoStatement = $db->prepare($sql);
   $pdoStatement->bindParam(1, $tuotenimi);
@@ -34,6 +35,7 @@ try {
   $pdoStatement->bindParam(4, $valmistaja);
   $pdoStatement->bindParam(5, $kuvatiedosto);
   $pdoStatement->bindParam(6, $tuoteryhma);
+  $pdoStatement->bindParam(7, $alehinta);
 
   $pdoStatement->execute();
 
