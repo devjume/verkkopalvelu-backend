@@ -16,6 +16,7 @@ CREATE TABLE tuote (
     tuote_id int NOT NULL AUTO_INCREMENT,
     tuotenimi varchar(255) NOT NULL,
     hinta DECIMAL(10,2) NOT NULL,
+    alehinta DECIMAL(10,2),
     kuvaus varchar(255) NOT NULL,
     valmistaja varchar(40),
     tuoteryhma_id int NOT NULL,
