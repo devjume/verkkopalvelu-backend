@@ -27,7 +27,7 @@ try {
   $pdo->bindParam(1, $id);
   $pdo->execute();
 
-  $result = $pdo->fetchAll();
+  $result = $pdo->fetch();
 
   http_response_code(200);
   print json_encode($result);
