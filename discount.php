@@ -5,7 +5,7 @@
   try {
     $db = openDB();
 
-    $sql = "SELECT * FROM `tuote` where alehinta>=0";
+    $sql = "SELECT * FROM `tuote` where alehinta>0";
     $query = $db->query($sql);
     $result = $query->fetchAll();
 
