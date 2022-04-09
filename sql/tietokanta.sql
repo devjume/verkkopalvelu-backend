@@ -14,13 +14,13 @@ CREATE TABLE tuoteryhma (
 
 CREATE TABLE tuote (
     tuote_id int NOT NULL AUTO_INCREMENT,
-    tuotenimi varchar(255) NOT NULL,
+    tuotenimi text NOT NULL,
     hinta DECIMAL(10,2) NOT NULL,
     alehinta DECIMAL(10,2),
-    kuvaus varchar(255) NOT NULL,
-    valmistaja varchar(40),
+    kuvaus text NOT NULL,
+    valmistaja text,
     tuoteryhma_id int NOT NULL,
-    kuvatiedosto varchar(255),
+    kuvatiedosto text,
     PRIMARY KEY (tuote_id),
     FOREIGN KEY (tuoteryhma_id) REFERENCES tuoteryhma(id)
 );
