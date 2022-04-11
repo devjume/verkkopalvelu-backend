@@ -75,9 +75,9 @@ VALUES  ("Samu", "Suomalainen", "ssuomalainen@gmail.com", "0404676431", "Saarist
 INSERT INTO tuoteryhma (nimi)
 VALUES ("Kannettavat"), ("Komponentit"), ("Puhelimet") ;
 
-INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja, tuoteryhma_id)
-VALUES  ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin haluavalle, speksejä nyt ei jaksa ettiä", "Acer", 1),
-        ("ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 429, "ASUS TUF Gaming GeForce® GTX 1660 Ti EVO 6GB GDDR6 on kyllä ihan jees näyttis, suosittelen :D!.", "Asus", 2);
+INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja, tuoteryhma_id, kuvatiedosto)
+VALUES  ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin haluavalle, speksejä nyt ei jaksa ettiä", "Acer", 1, "https://dlcdnwebimgs.asus.com/gain/e1cf3696-b474-4d69-bd48-593bc48316eb/w692"),
+        ("ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 429, "ASUS TUF Gaming GeForce® GTX 1660 Ti EVO 6GB GDDR6 on kyllä ihan jees näyttis, suosittelen :D!.", "Asus", 2, "https://www.ubuy.fi/productimg/?image=aHR0cHM6Ly9tLm1lZGlhLWFtYXpvbi5jb20vaW1hZ2VzL0kvNzFzMUxScGFwckwuX0FDX1NMMTUwMF8uanBn.jpg");
 
 INSERT INTO tilaus (asiakas_id, tilauspvm, tila)
     VALUES (1, "2022-03-24 11:40:10", "A"), (2, "2022-03-24 21:36:47", "A");
