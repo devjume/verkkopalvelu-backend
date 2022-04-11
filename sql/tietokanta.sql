@@ -73,7 +73,7 @@ VALUES  ("Samu", "Suomalainen", "ssuomalainen@gmail.com", "0404676431", "Saarist
         ("Eino", "Kivelä", "kiveläeikka@gmail.com", "0506632420", "Kauppakatu 67A", "92100", "Raahe", 1);
 
 INSERT INTO tuoteryhma (nimi)
-VALUES ("Kannettavat"), ("Komponentit");
+VALUES ("Kannettavat"), ("Komponentit"), ("Puhelimet") ;
 
 INSERT INTO tuote (tuotenimi, hinta, kuvaus, valmistaja, tuoteryhma_id)
 VALUES  ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin haluavalle, speksejä nyt ei jaksa ettiä", "Acer", 1),
