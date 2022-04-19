@@ -41,7 +41,7 @@ CREATE TABLE asiakas (
 CREATE TABLE tilaus (
     tilausnro int(11) NOT NULL AUTO_INCREMENT,
     asiakas_id int(11) NOT NULL,
-    tilauspvm datetime,
+    tilauspvm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     tila varchar(1),
     PRIMARY KEY(tilausnro),
     FOREIGN KEY (asiakas_id) REFERENCES asiakas(asiakas_id)
