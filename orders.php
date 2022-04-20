@@ -1,0 +1,58 @@
+<?php
+require_once 'inc/headers.php';
+require_once 'inc/functions.php';
+
+$id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
+
+
+#
+#if (!isset($id)) {
+#  http_response_code(400);
+#  print json_encode(array("error" => "Tuote ID puuttuu"));
+#  exit;
+#}
+
+try {
+  $db = openDB();
+
+  if (!$db) {
+    http_response_code(500);
+    print json_encode(array("error" => "Tietokanta yhteys epäonnistui"));
+    exit;
+  }
+
+  # Jos id:ta ei ole määritelty näytetään kaikki tilaukset ja niiden asiakkaat
+  # Muuten näytetään tietyn tilauksen tilausrivit tilaus.id perusteella
+  if(!isset($id)) {
+    $sql = "SELECT DISTINCT asiakas.asiakas_id, asiakas.etunimi, asiakas.sukunimi, tilaus.tilausnro, tilaus.tilauspvm, tilausrivi.tilausnro
+          FROM asiakas
+          LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
+          LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro;";
+    $pdo = $db->prepare($sql);
+  } else {
+    $sql = "SELECT tilaus.tilausnro, tilausrivi.rivinro, tilausrivi.tuote_id, tuote.tuotenimi, tilausrivi.kpl, tilausrivi.kpl_hinta, tilausrivi.summa
+      FROM `asiakas`
+      LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
+      LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro
+      LEFT JOIN tuote ON tuote.tuote_id = tilausrivi.tuote_id
+      WHERE tilaus.tilausnro = ?";
+      $pdo = $db->prepare($sql);  
+      $pdo->bindParam(1, $id);
+  }
+
+  $pdo->execute();
+
+  $result = $pdo->fetchAll();
+
+  http_response_code(200);
+  print json_encode($result);
+} catch (PDOException $error) {
+  returnError($error);
+}
+
+
+#SELECT asiakas.asiakas_id, asiakas.etunimi, asiakas.sukunimi, tilaus.tilausnro, tilaus.tilauspvm, tilausrivi.tilausnro, tilausrivi.rivinro
+#FROM `asiakas`
+#LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
+#LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro
+#WHERE asiakas.asiakas_id = 1;
