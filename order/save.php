@@ -3,10 +3,9 @@ require_once '../inc/headers.php';
 require_once '../inc/functions.php';
 
 $db = null;
-$input = file_get_contents('php://input');
-$input = json_decode($input);
+$input1 = file_get_contents('php://input');
+$input = json_decode($input1);
 
-print($input);
 $fname = filter_var($input->firstname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $lname = filter_var($input->lastname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $email = filter_var($input->email);
@@ -31,14 +30,18 @@ try{
     filter_var($city, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "')";
     
     $customer_id = executeInsert($db,$sql);
-
+    //$array as $key => $value
+    $sql = "insert into tilaus (asiakas_id) values ($customer_id)";
+    $order_id = executeInsert($db,$sql);
 
     // Insert order rows by looping through cart (which is an array).
-    foreach($cart as $product){
-        $sql = "insert into tilausrivi (tilausnro, tuote_id) values ("
+    foreach($cart as $key => $product){
+        $sql = "insert into tilausrivi (tilausnro, rivinro, tuote_id, kpl) values ("
         .
           $order_id . "," .
-          $product->id
+          $key + 1 . "," .
+          $product->tuote_id . "," .
+          $product->amount
         .")";
         executeInsert($db, $sql);
     }
