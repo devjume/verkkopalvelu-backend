@@ -13,9 +13,6 @@ $id = filter_input(INPUT_POST, "id");
 $hinta = str_replace(',', '.', $hinta);
 $alehinta =  str_replace(',', '.', $alehinta);
 
-
-echo $hinta . $alehinta;
-
 try {
   $db = openDB();
 
