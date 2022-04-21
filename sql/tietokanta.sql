@@ -50,12 +50,11 @@ CREATE TABLE tilaus (
 CREATE TABLE tilausrivi (
     tilausnro int NOT NULL,
     rivinro int NOT NULL,
-    tuote_id int NOT NULL,
+    tuotenimi text NOT NULL,
     kpl int NOT NULL,
     kpl_hinta int NOT NULL,
     summa int AS (kpl*kpl_hinta),
-    CONSTRAINT PRIMARYKEY PRIMARY KEY (tilausnro, rivinro),
-    FOREIGN KEY (tuote_id) REFERENCES tuote(tuote_id)
+    CONSTRAINT PRIMARYKEY PRIMARY KEY (tilausnro, rivinro)
 );
 
 CREATE TABLE yhteydenotto (
@@ -85,7 +84,7 @@ INSERT INTO tilaus (asiakas_id, tilauspvm, tila)
     VALUES (1, "2022-03-24 11:40:10", "A"), (2, "2022-03-24 21:36:47", "A");
 
 INSERT INTO tilausrivi (tilausnro, rivinro, tuote_id, kpl, kpl_hinta)
-    VALUES (1, 1, 1, 2, 199.99), (1, 2, 2, 4, 429), (2, 1, 2, 45, 429);
+    VALUES (1, 1, "Peliläppäri", 2, 199.99), (1, 2, "ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 4, 429), (2, 1, "ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 45, 429);
 
 INSERT INTO yhteydenotto (nimi, tilausnro, sposti, viesti) 
     VALUES ("Samu Suomalainen", 1, "ssuomalainen@gmail.com", "Paketti saapui hieman vaurioituneena. Laitteeseen tullut pieni naarmu"),
