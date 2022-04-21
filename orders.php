@@ -29,6 +29,8 @@ try {
           LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
           LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro;";
     $pdo = $db->prepare($sql);
+    $pdo->execute();
+    $json = $pdo->fetchAll();
   } else {
     $sql = "SELECT tilaus.tilausnro, tilausrivi.rivinro, tilausrivi.tuote_id, tuote.tuotenimi, tilausrivi.kpl, tilausrivi.kpl_hinta, tilausrivi.summa
       FROM `asiakas`
@@ -36,16 +38,40 @@ try {
       LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro
       LEFT JOIN tuote ON tuote.tuote_id = tilausrivi.tuote_id
       WHERE tilaus.tilausnro = ?";
+
       $pdo = $db->prepare($sql);  
       $pdo->bindParam(1, $id);
+      $pdo->execute();
+      $orderRows = $pdo->fetchAll();
+
+    $customerDetailsQuery = "SELECT asiakas.etunimi, asiakas.sukunimi, asiakas.sahkoposti, asiakas.puhnro, asiakas.osoite, asiakas.postinro, asiakas.postitmp, tilaus.tilauspvm
+        FROM `asiakas`
+        LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
+        WHERE tilaus.tilausnro = ?";
+    
+    $pdo = $db->prepare($customerDetailsQuery);
+    $pdo->bindParam(1, $id);
+    $pdo->execute();
+    $customerDetails = $pdo->fetch(PDO::FETCH_OBJ);
+
+
+      $json = array(
+      "rows" => $orderRows,
+      "firstname" => $customerDetails->etunimi,
+      "lastname" => $customerDetails->sukunimi,
+      "email" => $customerDetails->sahkoposti,
+      "phone" => $customerDetails->puhnro,
+      "address" => $customerDetails->osoite,
+      "zip" => $customerDetails->postinro,
+      "city" => $customerDetails->postitmp,
+      "address" => $customerDetails->osoite,
+      "orderDate" => $customerDetails->tilauspvm
+    );
   }
 
-  $pdo->execute();
-
-  $result = $pdo->fetchAll();
 
   http_response_code(200);
-  print json_encode($result);
+  print json_encode($json);
 } catch (PDOException $error) {
   returnError($error);
 }
