@@ -83,7 +83,7 @@ VALUES  ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin halua
 INSERT INTO tilaus (asiakas_id, tilauspvm, tila)
     VALUES (1, "2022-03-24 11:40:10", "A"), (2, "2022-03-24 21:36:47", "A");
 
-INSERT INTO tilausrivi (tilausnro, rivinro, tuote_id, kpl, kpl_hinta)
+INSERT INTO tilausrivi (tilausnro, rivinro, tuotenimi, kpl, kpl_hinta)
     VALUES (1, 1, "Peliläppäri", 2, 199.99), (1, 2, "ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 4, 429), (2, 1, "ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 45, 429);
 
 INSERT INTO yhteydenotto (nimi, tilausnro, sposti, viesti) 
