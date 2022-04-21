@@ -3,14 +3,15 @@ require_once "./inc/functions.php";
 require_once "./inc/headers.php";
 
 $tuotenimi = filter_input(INPUT_POST, "tuotenimi");
-$hinta = filter_input(INPUT_POST, "hinta", FILTER_VALIDATE_INT);
+$hinta = filter_input(INPUT_POST, "hinta");
 $alehinta = filter_input(INPUT_POST, "alehinta");
 $kuvaus = filter_input(INPUT_POST, "kuvaus");
 $valmistaja = filter_input(INPUT_POST, "valmistaja");
 $kuvatiedosto = filter_input(INPUT_POST, "kuvatiedosto");
 $id = filter_input(INPUT_POST, "id");
 
-
+$hinta = str_replace(',', '.', $hinta);
+$alehinta =  str_replace(',', '.', $alehinta);
 
 try {
   $db = openDB();
