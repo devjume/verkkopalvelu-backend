@@ -36,11 +36,11 @@ try{
 
     // Insert order rows by looping through cart (which is an array).
     foreach($cart as $key => $product){
-        $sql = "insert into tilausrivi (tilausnro, rivinro, tuote_id, kpl, kpl_hinta) values ("
+        $sql = "insert into tilausrivi (tilausnro, rivinro, tuotenimi, kpl, kpl_hinta) values ("
         .
           $order_id . "," .
           $key + 1 . "," .
-          $product->tuote_id . "," .
+          "'" .  $product->tuotenimi . "'" . "," .
           $product->amount . "," .
           $product->hinta
         .")";
