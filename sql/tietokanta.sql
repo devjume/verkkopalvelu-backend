@@ -38,12 +38,19 @@ CREATE TABLE asiakas (
     PRIMARY KEY (asiakas_id)
 );
 
+CREATE TABLE tilakoodisto (
+  id int NOT NULL AUTO_INCREMENT,
+  tila varchar(50),
+  PRIMARY KEY(id)
+);
+
 CREATE TABLE tilaus (
     tilausnro int(11) NOT NULL AUTO_INCREMENT,
     asiakas_id int(11) NOT NULL,
     tilauspvm TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    tila varchar(1),
+    tila int(11),
     PRIMARY KEY(tilausnro),
+    FOREIGN KEY (tila) REFERENCES tilakoodisto(id),
     FOREIGN KEY (asiakas_id) REFERENCES asiakas(asiakas_id)
 );
 
@@ -66,7 +73,14 @@ CREATE TABLE yhteydenotto (
   PRIMARY KEY(id)
 );
 
+
+
 /* INSERT LAUSEET */
+
+INSERT INTO tilakoodisto (tila)
+VALUES  ("Maksettu"),
+        ("Odottaa käsittelyä"),
+        ("Lähetetty");
 
 INSERT INTO asiakas (etunimi, sukunimi, sahkoposti, puhnro, osoite, postinro, postitmp, rooli)
 VALUES  ("Samu", "Suomalainen", "ssuomalainen@gmail.com", "0404676431", "Saaristokatu 333 A3", "90500", "Tampere", 1),
@@ -80,7 +94,7 @@ VALUES  ("Peliläppäri", 199.99, "Aikansa elänyt peliläppäri jollekkin halua
         ("ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 429, "ASUS TUF Gaming GeForce® GTX 1660 Ti EVO 6GB GDDR6 on kyllä ihan jees näyttis, suosittelen :D!.", "Asus", 2, "https://dlcdnwebimgs.asus.com/gain/e1cf3696-b474-4d69-bd48-593bc48316eb/w692");
 
 INSERT INTO tilaus (asiakas_id, tilauspvm, tila)
-    VALUES (1, "2022-03-24 11:40:10", "A"), (2, "2022-03-24 21:36:47", "A");
+    VALUES (1, "2022-03-24 11:40:10",  1), (2, "2022-03-24 21:36:47", 2);
 
 INSERT INTO tilausrivi (tilausnro, rivinro, tuotenimi, kpl, kpl_hinta)
     VALUES (1, 1, "Peliläppäri", 2, 199.99), (1, 2, "ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 4, 429), (2, 1, "ASUS GeForce GTX 1660 TI 6GB TUF EVO GAMING", 45, 429);

@@ -31,7 +31,7 @@ try{
     
     $customer_id = executeInsert($db,$sql);
     //$array as $key => $value
-    $sql = "insert into tilaus (asiakas_id) values ($customer_id)";
+    $sql = "insert into tilaus (asiakas_id, tila) values ($customer_id, 'Odottaa käsittelyä')";
     $order_id = executeInsert($db,$sql);
 
     // Insert order rows by looping through cart (which is an array).
