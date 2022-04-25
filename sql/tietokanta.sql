@@ -58,9 +58,12 @@ CREATE TABLE tilausrivi (
     tilausnro int NOT NULL,
     rivinro int NOT NULL,
     tuotenimi text NOT NULL,
+    tuote_id int,
     kpl int NOT NULL,
     kpl_hinta int NOT NULL,
     summa int AS (kpl*kpl_hinta),
+    FOREIGN KEY (tuote_id) REFERENCES tuote (tuote_id)
+    ON DELETE SET NULL,
     CONSTRAINT PRIMARYKEY PRIMARY KEY (tilausnro, rivinro)
 );
 

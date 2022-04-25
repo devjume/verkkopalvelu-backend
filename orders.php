@@ -33,7 +33,7 @@ try {
     $pdo->execute();
     $json = $pdo->fetchAll();
   } else {
-    $sql = "SELECT tilaus.tilausnro, tilausrivi.rivinro, tilausrivi.tuotenimi, tilausrivi.kpl, tilausrivi.kpl_hinta, tilausrivi.summa,
+    $sql = "SELECT tilaus.tilausnro, tilausrivi.rivinro, tilausrivi.tuotenimi, tilausrivi.kpl, tilausrivi.kpl_hinta, tilausrivi.summa, tilausrivi.tuote_id
       FROM `asiakas`
       LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
       LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro
