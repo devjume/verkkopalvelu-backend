@@ -32,11 +32,10 @@ try {
     $pdo->execute();
     $json = $pdo->fetchAll();
   } else {
-    $sql = "SELECT tilaus.tilausnro, tilausrivi.rivinro, tilausrivi.tuote_id, tuote.tuotenimi, tilausrivi.kpl, tilausrivi.kpl_hinta, tilausrivi.summa
+    $sql = "SELECT tilaus.tilausnro, tilausrivi.rivinro, tilausrivi.tuotenimi, tilausrivi.kpl, tilausrivi.kpl_hinta, tilausrivi.summa
       FROM `asiakas`
       LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
       LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro
-      LEFT JOIN tuote ON tuote.tuote_id = tilausrivi.tuote_id
       WHERE tilaus.tilausnro = ?";
 
       $pdo = $db->prepare($sql);  
