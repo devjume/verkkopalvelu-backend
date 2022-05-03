@@ -24,11 +24,11 @@ try {
   # Jos id:ta ei ole määritelty näytetään kaikki tilaukset ja niiden asiakkaat
   # Muuten näytetään tietyn tilauksen tilausrivit tilaus.id perusteella
   if(!isset($id)) {
-    $sql = "SELECT DISTINCT asiakas.asiakas_id, asiakas.etunimi, asiakas.sukunimi, tilaus.tilausnro,  UNIX_TIMESTAMP(tilaus.tilauspvm) as pvm, tilausrivi.tilausnro, tilaus.tila, tilakoodisto.tila
-          FROM asiakas
-          LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id 
-          LEFT JOIN tilakoodisto ON tilaus.tila = tilakoodisto.id
-          LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro;";
+    $sql = "SELECT DISTINCT asiakas.asiakas_id, asiakas.etunimi, asiakas.sukunimi, tilaus.tilausnro,  UNIX_TIMESTAMP(tilaus.tilauspvm) as pvm, tilaus.tila
+    FROM asiakas
+    LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id 
+    LEFT JOIN tilakoodisto ON tilaus.tila = tilakoodisto.id
+    LEFT JOIN tilausrivi ON tilausrivi.tilausnro = tilaus.tilausnro;";
     $pdo = $db->prepare($sql);
     $pdo->execute();
     $json = $pdo->fetchAll();
@@ -65,7 +65,8 @@ try {
       "zip" => $customerDetails->postinro,
       "city" => $customerDetails->postitmp,
       "address" => $customerDetails->osoite,
-      "orderDate" => $customerDetails->pvm
+      "orderDate" => $customerDetails->pvm,
+      "orderStatus" => $customerDetails->tila
     );
   }
 

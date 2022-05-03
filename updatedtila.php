@@ -23,13 +23,6 @@ try {
   $pdoStatement->execute();
   $affectedRows = $pdoStatement->rowCount();
 
-  if ($affectedRows <= 0) {
-    http_response_code(500);
-    print json_encode(array("message" => "Viestin lähettäminen epäonnistui"));
-  } else {
-    http_response_code(200);
-    print json_encode(array("message" => "Viesti lähetetty"));
-  }
 
   exit();
 } catch (PDOException $error) {
