@@ -10,9 +10,9 @@ $fname = filter_var($input->firstname,FILTER_SANITIZE_SPECIAL_CHARS);
 $lname = filter_var($input->lastname,FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_var($input->email);
 $number = filter_var($input->number, FILTER_SANITIZE_NUMBER_FLOAT);
-$address = filter_var($input->address, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$address = filter_var($input->address, FILTER_SANITIZE_SPECIAL_CHARS);
 $zip = filter_var($input->zip, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$city = filter_var($input->city, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$city = filter_var($input->city, FILTER_SANITIZE_SPECIAL_CHARS);
 $cart = $input->cart;
 
 try{
@@ -25,9 +25,9 @@ try{
     filter_var($lname,FILTER_SANITIZE_SPECIAL_CHARS). "','" .
     filter_var($email, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
     filter_var($number, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
-    filter_var($address, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
+    filter_var($address, FILTER_SANITIZE_SPECIAL_CHARS). "','" .
     filter_var($zip, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
-    filter_var($city, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "')";
+    filter_var($city, FILTER_SANITIZE_SPECIAL_CHARS). "')";
     
     $customer_id = executeInsert($db,$sql);
     //$array as $key => $value
