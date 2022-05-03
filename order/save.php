@@ -6,8 +6,8 @@ $db = null;
 $input1 = file_get_contents('php://input');
 $input = json_decode($input1);
 
-$fname = filter_var($input->firstname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-$lname = filter_var($input->lastname, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$fname = filter_var($input->firstname,FILTER_SANITIZE_SPECIAL_CHARS);
+$lname = filter_var($input->lastname,FILTER_SANITIZE_SPECIAL_CHARS);
 $email = filter_var($input->email);
 $number = filter_var($input->number, FILTER_SANITIZE_NUMBER_FLOAT);
 $address = filter_var($input->address, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -21,8 +21,8 @@ try{
 
   // Insert customer
   $sql = "insert into asiakas (etunimi, sukunimi, sahkoposti, puhnro, osoite, postinro, postitmp) values ('". 
-    filter_var($fname, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
-    filter_var($lname, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
+    filter_var($fname,FILTER_SANITIZE_SPECIAL_CHARS). "','" .
+    filter_var($lname,FILTER_SANITIZE_SPECIAL_CHARS). "','" .
     filter_var($email, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
     filter_var($number, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
     filter_var($address, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
