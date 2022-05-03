@@ -44,7 +44,7 @@ try {
       $pdo->execute();
       $orderRows = $pdo->fetchAll();
 
-    $customerDetailsQuery = "SELECT asiakas.etunimi, asiakas.sukunimi, asiakas.sahkoposti, asiakas.puhnro, asiakas.osoite, asiakas.postinro, asiakas.postitmp, UNIX_TIMESTAMP(tilaus.tilauspvm) as pvm
+    $customerDetailsQuery = "SELECT asiakas.etunimi, asiakas.sukunimi, asiakas.sahkoposti, asiakas.puhnro, asiakas.osoite, asiakas.postinro, asiakas.postitmp, UNIX_TIMESTAMP(tilaus.tilauspvm) as pvm, tila
         FROM `asiakas`
         LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
         WHERE tilaus.tilausnro = ?";
