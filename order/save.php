@@ -35,16 +35,30 @@ try{
     $order_id = executeInsert($db,$sql);
 
     // Insert order rows by looping through cart (which is an array).
+    
     foreach($cart as $key => $product){
+      if ($product->alehinta > 0) {
         $sql = "insert into tilausrivi (tilausnro, rivinro, tuotenimi, kpl, kpl_hinta, tuote_id) values ("
         .
           $order_id . "," .
           $key + 1 . "," .
           "'" .  $product->tuotenimi . "'" . "," .
           $product->amount . "," .
-          $product->hinta . "," .
+          $product->alehinta . "," .
           $product->tuote_id
         .")";
+      } else {
+        $sql = "insert into tilausrivi (tilausnro, rivinro, tuotenimi, kpl, kpl_hinta, tuote_id) values ("
+        .
+          $order_id . "," .
+          $key + 1 . "," .
+          "'" .  $product->tuotenimi . "'" . "," .
+          $product->amount . "," .
+          $product->alehinta . "," .
+          $product->tuote_id
+        .")";
+      }
+        
         executeInsert($db, $sql);
     }
 

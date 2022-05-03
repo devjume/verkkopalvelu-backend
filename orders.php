@@ -44,9 +44,10 @@ try {
       $pdo->execute();
       $orderRows = $pdo->fetchAll();
 
-    $customerDetailsQuery = "SELECT asiakas.etunimi, asiakas.sukunimi, asiakas.sahkoposti, asiakas.puhnro, asiakas.osoite, asiakas.postinro, asiakas.postitmp, UNIX_TIMESTAMP(tilaus.tilauspvm) as pvm, tila
+    $customerDetailsQuery = "SELECT asiakas.etunimi, asiakas.sukunimi, asiakas.sahkoposti, asiakas.puhnro, asiakas.osoite, asiakas.postinro, asiakas.postitmp, UNIX_TIMESTAMP(tilaus.tilauspvm) as pvm, tila, sum(tilausrivi.summa) as summa
         FROM `asiakas`
         LEFT JOIN tilaus ON tilaus.asiakas_id = asiakas.asiakas_id
+        LEFT JOIN tilausrivi on tilausrivi.tilausnro = tilaus.tilausnro
         WHERE tilaus.tilausnro = ?";
     
     $pdo = $db->prepare($customerDetailsQuery);
@@ -66,7 +67,8 @@ try {
       "city" => $customerDetails->postitmp,
       "address" => $customerDetails->osoite,
       "orderDate" => $customerDetails->pvm,
-      "orderStatus" => $customerDetails->tila
+      "orderStatus" => $customerDetails->tila,
+      "totalSum" => $customerDetails->summa
     );
   }
 
