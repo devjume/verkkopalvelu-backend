@@ -54,7 +54,7 @@ try{
           $key + 1 . "," .
           "'" .  $product->tuotenimi . "'" . "," .
           $product->amount . "," .
-          $product->alehinta . "," .
+          $product->hinta . "," .
           $product->tuote_id
         .")";
       }
