@@ -23,7 +23,7 @@ try{
   $sql = "insert into asiakas (etunimi, sukunimi, sahkoposti, puhnro, osoite, postinro, postitmp) values ('". 
     filter_var($fname,FILTER_SANITIZE_SPECIAL_CHARS). "','" .
     filter_var($lname,FILTER_SANITIZE_SPECIAL_CHARS). "','" .
-    filter_var($email, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
+    filter_var($email, FILTER_SANITIZE_SPECIAL_CHARS). "','" .
     filter_var($number, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
     filter_var($address, FILTER_SANITIZE_SPECIAL_CHARS). "','" .
     filter_var($zip, FILTER_SANITIZE_FULL_SPECIAL_CHARS). "','" .
