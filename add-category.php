@@ -6,7 +6,7 @@ $categoryName = filter_input(INPUT_POST, "categoryName");
 
 if (!isset($categoryName) || empty($categoryName)) {
   http_response_code(400);
-  print json_encode(array("message" => "Tuoteryhmän nimi puuttuu"));
+  print json_encode(array("message" => "Tuoteryhmän nimi puuttuu "));
   exit;
 }
 
